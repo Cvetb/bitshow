@@ -5,8 +5,8 @@ const SearchBar = (props) => {
         <div>
             <i className="material-icons prefix">search</i>
             <input id="icon_prefix" type="text" className="validate white-text" placeholder="search shows" />
-            </div>
-  )
+        </div>
+    )
 }
 
 export default SearchBar;

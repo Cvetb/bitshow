@@ -8,7 +8,7 @@ import { fetchCast } from "../services/CastService";
 class ShowInfoPage extends Component {
 
     constructor(props) {
-        
+
         super(props);
         this.state = {
             show: null,
@@ -22,7 +22,7 @@ class ShowInfoPage extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        
+
         this.fetchShowDetails(nextProps.match.params.id);
     }
 
@@ -34,19 +34,19 @@ class ShowInfoPage extends Component {
                 })
             });
 
-            fetchSeasons(id)
+        fetchSeasons(id)
             .then(responseSeasons => this.setState({
                 seasons: responseSeasons
             }));
-            fetchCast(id)
+        fetchCast(id)
             .then(responseCast => {
-                
+
                 this.setState({
-                    castList : responseCast
+                    castList: responseCast
                 })
             })
     }
-    
+
 
     render() {
         const { show, seasons, castList } = this.state;
@@ -54,44 +54,44 @@ class ShowInfoPage extends Component {
 
         if (!show) {
             return <div className="progress top">
-            <div className="indeterminate"></div>
-        </div>
-              
+                <div className="indeterminate"></div>
+            </div>
+
         }
 
-    return (
-        <Fragment>
+        return (
+            <Fragment>
                 <div className="container">
-                    
-                <h4 className="center red-text text-darken-4">{show.name}</h4>
-                        
-                <div className="row">
-                    <div className="col m5 offset-m1">
-                        <img src={show.medium} alt="show" />
-                    </div>
-                    <div className="col m3">
-                        <h5 className="teal-text">Seasons ({seasons.length})</h5>
+
+                    <h4 className="center red-text text-darken-4">{show.name}</h4>
+
+                    <div className="row">
+                        <div className="col m5 offset-m1">
+                            <img src={show.medium} alt="show" />
+                        </div>
+                        <div className="col m3">
+                            <h5 className="teal-text">Seasons ({seasons.length})</h5>
                             <ul>
-                                { seasons.map((season) => {
-                                    return <li> 
+                                {seasons.map((season) => {
+                                    return <li>
                                         {season.premiereDate} - {season.endDate} </li>
                                 })}
                             </ul>
-                    </div>
-                    <div className="col m3">
-                        <h5 className="teal-text">Casts</h5>
+                        </div>
+                        <div className="col m3">
+                            <h5 className="teal-text">Casts</h5>
                             <ul>
-                                { castList.map((cast) => {
+                                {castList.map((cast) => {
                                     return <li >{cast.name}</li>
                                 })}
                             </ul>
-                    </div> 
-                </div> 
-                    
-                <h5 className="teal-text">Summary </h5>
-                <p>{show.summary}</p>
-            </div>     
-        </Fragment>
+                        </div>
+                    </div>
+
+                    <h5 className="teal-text">Summary </h5>
+                    <p>{show.summary}</p>
+                </div>
+            </Fragment>
         )
     }
 }

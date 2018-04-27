@@ -12,11 +12,11 @@ const fetchShowList = () => {
 }
 
 
-const fetchShowById=(id)=>{
+const fetchShowById = (id) => {
     return fetch(`http://api.tvmaze.com/shows/${id}`)
-    .then(response=>response.json())
-    .then(singleShow => new Show(singleShow))
-    .catch(error=>alert("error"))
+        .then(response => response.json())
+        .then(singleShow => new Show(singleShow))
+        .catch(error => alert("error"))
 }
 
 export { fetchShowList, fetchShowById };
