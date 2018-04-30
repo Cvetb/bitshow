@@ -10,7 +10,7 @@ let UIModule = (() => {
             <div class="card">
                 <div class="card-body" id= "${showId}">
                     <img src="${showImage}" alt="show"><br>
-                    <a href="show-info.html" class="card-link">${showName}</a></div>
+                    <a href="show-info.html" class="card-link text-dark">${showName}</a></div>
                 </div>
             </div>`
             $("#main").append(element);
@@ -35,9 +35,9 @@ let UIModule = (() => {
                 </div>
                 <div class="col-lg-6">
                 <h4>Seasons (${seasons.length})</h4>
-                <ul id="seasonList"> </ul>
+                <ul id="seasonList" class="list-unstyled"> </ul>
                 <h4>Cast</h4>
-                <ul id="castList">
+                <ul id="castList" class="list-unstyled">
                 </ul> 
                 </div>
                 </div>
